@@ -1,4 +1,4 @@
-# Logical
+# Logical partitions
 /system_image             emmc      /dev/block/bootdevice/by-name/system                                flags=display="System Image";logical;backup=1;flashimg
 /vendor_image             emmc     /dev/block/bootdevice/by-name/vendor                                flags=display="Vendor Image";logical;backup=1;flashimg
 /product_image            emmc     /dev/block/bootdevice/by-name/product                               flags=display="Product Image";logical;backup=1;flashimg
@@ -6,7 +6,7 @@
 /system_ext_image         emmc     /dev/block/bootdevice/by-name/system_ext                            flags=display="System EXT";logical;backup=1;flashimg
 /vendor_dlkm_image        emmc     /dev/block/bootdevice/by-name/vendor_dlkm                           flags=display=Vendor DLKM";logical;backup=1;flashimg
 
-# List A
+# Physical partitions
 /boot               emmc      /dev/block/by-name/boot               flags=display="boot";flashimg;backup=1
 /recovery           emmc      /dev/block/by-name/recovery           flags=display="recovery";flashimg;backup=1
 /efs                ext4      /dev/block/by-name/sec_efs            flags=display="efs";backup=1
