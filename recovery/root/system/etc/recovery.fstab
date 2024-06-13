@@ -1,16 +1,16 @@
-/system             erofs     system                                flags=display=system;logical
-/system             f2fs      system                                flags=display=system;logical
-/system             ext4      system                                flags=display=system;logical
-/vendor             erofs     vendor                                flags=display=vendor;logical
-/product            erofs     product                               flags=display=product;logical
-/system_ext         erofs     system_ext                            flags=display=system_ext;logical
-/vendor_dlkm        erofs     vendor_dlkm                           flags=display=vendor_dlkm;logical
-/odm                erofs     odm                                   flags=display=odm;logical
+/system             erofs     system                                wait,logical,first_stage_mount
+/system             f2fs      system                                wait,logical,first_stage_mount
+/system             ext4      system                                wait,logical,first_stage_mount
+/vendor             erofs     vendor                                wait,logical,first_stage_mount
+/product            erofs     product                               wait,logical,first_stage_mount
+/system_ext         erofs     system_ext                            wait,logical,first_stage_mount
+/vendor_dlkm        erofs     vendor_dlkm                           wait,logical,first_stage_mount
+/odm                erofs     odm                                   wait,logical,first_stage_mount
 
 # data
-/metadata           ext4      /dev/block/by-name/metadata           flags=display=metadata
-/data               f2fs      /dev/block/by-name/userdata           flags=display=data
-/cache              ext4      /dev/block/by-name/cache              flags=display=cache
+/metadata           ext4      /dev/block/by-name/metadata           noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,formattable,first_stage_mount,check
+/data               f2fs      /dev/block/by-name/userdata           noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,whint_mode=fs-based,inlinecrypt	latemount,wait,check,quota,reservedsize=128M,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,metadata_encryption=aes-256-xts:wrappedkey_v0,checkpoint=fs,fscompress,keydirectory=/metadata/vold/metadata_encryption
+/cache              ext4      /dev/block/by-name/cache              noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
 
 # boot
 /misc               emmc      /dev/block/by-name/misc               flags=display=misc,first_stage_mount
