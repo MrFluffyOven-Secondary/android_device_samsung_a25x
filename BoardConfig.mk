@@ -42,9 +42,6 @@ TARGET_SCREEN_HEIGHT := 1080
 TARGET_SCREEN_WIDTH := 2340
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-# Display
-TARGET_SCREEN_DENSITY := 450
-
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_CMDLINE := bootconfig buildtime_bootconfig=enable loop.max_part=7
